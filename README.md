@@ -42,6 +42,10 @@ The artificial intelligence layer incorporates Transformer models for trajectory
 
 Security measures include AES-256 encryption, TLS 1.3 secure communication protocols, and hardware security modules for cryptographic protection. Simulation and validation tools include GMAT, Orekit, and MATLAB/Simulink for orbital modeling and hardware-in-the-loop testing.
 
+Flowchart
+
+![Uploading image.png…]()
+
 Architecture
 
 <img width="1466" height="607" alt="image" src="https://github.com/user-attachments/assets/88067bd8-0e76-4220-a806-0a33ae1fe992" />

@@ -1,25 +1,17 @@
 import numpy as np
 
-
-# ==========================================================
 # Distance Computation
-# ==========================================================
 
 def compute_distances(sat_position, debris_positions):
     return np.linalg.norm(debris_positions - sat_position, axis=1)
 
-
-# ==========================================================
 # Time-To-Collision Estimation
-# ==========================================================
 
 def estimate_time_to_collision(sat_position, sat_velocity,
                                debris_position, debris_velocity):
     relative_position = debris_position - sat_position
     relative_velocity = debris_velocity - sat_velocity
-
     relative_speed = np.linalg.norm(relative_velocity)
-
     if relative_speed == 0:
         return np.inf
 
@@ -27,10 +19,7 @@ def estimate_time_to_collision(sat_position, sat_velocity,
 
     return max(time_to_collision, 0)
 
-
-# ==========================================================
 # Collision Probability Model
-# ==========================================================
 
 def estimate_collision_probability(distance, relative_speed,
                                    threshold=150):
@@ -40,10 +29,8 @@ def estimate_collision_probability(distance, relative_speed,
     probability = 0.6 * distance_factor + 0.4 * velocity_factor
     return round(probability, 3)
 
-
-# ==========================================================
 # Conjunction Analysis (Multi-Debris Ranking)
-# ==========================================================
+
 
 def analyze_conjunctions(sat_position, sat_velocity,
                          debris_positions, debris_velocities):
@@ -76,9 +63,9 @@ def analyze_conjunctions(sat_position, sat_velocity,
     return threat_list
 
 
-# ==========================================================
+
 # Risk Detection
-# ==========================================================
+
 
 def detect_highest_risk(threat_list, probability_threshold=0.3):
 
